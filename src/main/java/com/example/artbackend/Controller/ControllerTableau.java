@@ -38,7 +38,15 @@ public class ControllerTableau {
                 }
             }
 
-
+            @PostMapping("/AddTableau")
+            public ResponseEntity<Tableau> AddTableau(@RequestBody Tableau tableau) {
+                try {
+                    Tableau savedTableau = TS.createTableau(tableau);
+                    return ResponseEntity.status(HttpStatus.CREATED).body(savedTableau);
+                } catch (Exception e) {
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+                }
+            }
 
 
 

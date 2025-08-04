@@ -109,10 +109,12 @@ public class Admin {
 
 
     @PostMapping("/AddMedia")
-    public ResponseEntity<HttpStatus> addMedia(@RequestBody Media m ,@RequestParam String type , @RequestParam int id  ) {
+    public ResponseEntity<HttpStatus> addMedia(@RequestParam String path, @RequestParam String type , @RequestParam int id  ) {
         try {
-
-            MS.AddMedia(m , type , id );
+            if (path == null || path.isEmpty() || type == null || type.isEmpty() || id <= 0) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            MS.AddMedia(path , type , id );
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         }catch (Exception e ){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

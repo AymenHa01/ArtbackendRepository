@@ -6,23 +6,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class SousAtelier {
+public class MediaFormation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name ;
-    private String Description ;
-    @ManyToOne
-    private Atelier atelier;
-    private Float prix ;
-    @OneToMany(mappedBy = "sousAtelier")
-    private List<MediaSousAtelier> media;
+    private String Path;
 
+    @ManyToOne
+    @JsonIgnore
+    private Formation formation;
 
 }

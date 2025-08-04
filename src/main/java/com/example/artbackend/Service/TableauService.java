@@ -38,9 +38,10 @@ public List<Tableau> getAllTableau(){
         return TB.findAll();
 }
 
-public void createTableau(Tableau tableau){
+public Tableau createTableau(Tableau tableau){
     messagingTemplate.convertAndSend("/topic/Tableau" ,"Hello,this is a test message!");
-    TB.save(tableau);
+    Tableau savedTableau = TB.save(tableau);
+    return savedTableau; 
 }
 
 

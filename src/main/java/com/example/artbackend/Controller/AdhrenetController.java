@@ -34,7 +34,15 @@ public class AdhrenetController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    @GetMapping("/getAllUsers")
+    public ResponseEntity<List<Utilisateur>> getAllUsers() {
+        try {
+            List<Utilisateur> users = SU.getAllUsers();
+            return new ResponseEntity<>(users, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     @GetMapping("/getAlladhrentParticiapation/{id}")
     public ResponseEntity<Map<String, Object>> getadhrent(@PathVariable int id) {
         try {

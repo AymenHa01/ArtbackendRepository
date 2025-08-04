@@ -26,7 +26,9 @@ public class ServiceUtilisateur {
  public void addadhrenet(adherent ad  ){
      RA.save(ad);
  }
-
+public List<Utilisateur> getAllUsers() {
+    return AR.findAll();
+}
 public List<adherent> getAlladhrenet(int id ){
   return RA.findAllByUtilisateur_Id(id);
 }

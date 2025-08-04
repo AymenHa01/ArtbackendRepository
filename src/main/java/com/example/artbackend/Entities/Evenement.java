@@ -23,7 +23,7 @@ public class Evenement {
     private Float prix ;
     private  String image ;
     @OneToMany(mappedBy = "evenement" , cascade = CascadeType.ALL ,orphanRemoval = true )
-    private  List<Media> media;
+    private  List<MediaEvent> media;
 
 
 

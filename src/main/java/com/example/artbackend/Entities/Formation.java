@@ -29,10 +29,9 @@ public class Formation {
 
 
 
-    @OneToMany(mappedBy = "formation")
-    private  List<Media> media;
 
-
+    @OneToMany(mappedBy = "formation", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MediaFormation> media;
 
 
 }

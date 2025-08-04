@@ -96,7 +96,7 @@ public class RestSecurityConfig {
                         .requestMatchers("/news/**").permitAll()
                         .requestMatchers("/ws/**").permitAll()
                         .requestMatchers("/Admin/**").hasAuthority("ADMIN")
-                        .requestMatchers("/Adhrent/**").hasAuthority("USER")
+                        .requestMatchers("/Adhrent/**").hasAnyAuthority("USER", "ADMIN")
                         .requestMatchers("/Atelier/**").permitAll()
                         .requestMatchers("/Tableaux/**").permitAll()
                         .requestMatchers("/Evenemet/**").permitAll()

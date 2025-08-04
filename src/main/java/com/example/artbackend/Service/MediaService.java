@@ -26,8 +26,10 @@ public class MediaService {
     SousAtelierRepository saRepository;
 
 
-    public  void   AddMedia(Media media , String type , int id  ){
+    public  void   AddMedia(String Path , String type , int id  ){
         System.out.println(id);
+        Media media = new Media();
+        media.setPath(Path);
         if (type.equals("E")) {
                 Evenement evenement = eRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("Evenement not found"));
@@ -48,4 +50,5 @@ public class MediaService {
     public void DeleteMedia(int id ){
         MI.deleteById(id);
     }
+
 }
