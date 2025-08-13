@@ -1,5 +1,6 @@
 package com.example.artbackend.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,13 +26,20 @@ public class Formation {
     private int  heures ;
     private Float prix ;
     private String image ;
-
+    @Column(nullable = true)
+    private boolean isActive ;
 
 
 
 
     @OneToMany(mappedBy = "formation", cascade = CascadeType.ALL, orphanRemoval = true)
+    
     private List<MediaFormation> media;
+
+
+    public Formation(int id) {
+        this.id = id;
+    }
 
 
 }

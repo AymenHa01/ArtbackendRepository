@@ -3,6 +3,7 @@ package com.example.artbackend.Controller;
 import com.example.artbackend.Entities.*;
 import com.example.artbackend.Service.AtelierService;
 import com.example.artbackend.Service.EvenementService;
+import com.example.artbackend.Service.FormationService;
 import com.example.artbackend.Service.MediaService;
 import com.example.artbackend.Service.TableauService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +19,27 @@ public class Admin {
 
     @Autowired
     TableauService  TS;
+
+
+
+
+    
     @Autowired
     AtelierService AS;
 
     @Autowired
     MediaService MS;
+
+
+
     @Autowired
     EvenementService ES;
+
+
+    
+    @Autowired
+    private FormationService formationService;
+
 
     @PostMapping("/createArtiste")
 
@@ -65,7 +80,7 @@ public class Admin {
         }
     }
 
-
+                                                                                                               
     @PostMapping("/addAtelier")
     public ResponseEntity<HttpStatus> addAtelier(@RequestBody Atelier a) {
         try{
@@ -143,5 +158,46 @@ public class Admin {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
+
+        @PostMapping("/AddMediaFormation")
+        public ResponseEntity<Void> addMediaFormation(@RequestParam String path , @RequestParam int id) {
+            try {
+                formationService.addMediaFormation(path , id);
+                return ResponseEntity.ok().build();
+            } catch (Exception e) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            }
+        }
+
+
+    @PostMapping("/AddMediaToEvent")
+    public ResponseEntity<Void> addMediaToEvent(@RequestParam String path , @RequestParam int id) {
+        try {
+            ES.addMediaToEvent(path , id);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+    @PostMapping("/AddMediaToAtelier")
+    public ResponseEntity<Void> addMediaToAtelier(@RequestBody MediaSousAtelier mediaAtelier) {
+        try {
+            AS.addMediaToAtelier(mediaAtelier);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+
+
+
+
+
 
 }

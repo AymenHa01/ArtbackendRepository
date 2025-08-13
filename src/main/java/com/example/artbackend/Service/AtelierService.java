@@ -1,9 +1,13 @@
 package com.example.artbackend.Service;
 
 import com.example.artbackend.Entities.Atelier;
+import com.example.artbackend.Entities.MediaSousAtelier;
 import com.example.artbackend.Entities.SousAtelier;
 import com.example.artbackend.Repository.AtelierRepository;
+import com.example.artbackend.Repository.MediaeventRepository;
 import com.example.artbackend.Repository.SousAtelierRepository;
+import com.example.artbackend.Repository.mediaSousAtelierRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
@@ -17,6 +21,9 @@ public class AtelierService {
 
     @Autowired
     SousAtelierRepository SR;
+
+    @Autowired
+    private mediaSousAtelierRepository MAR;
 
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
@@ -63,6 +70,11 @@ public void DeleteAtelier(int id ){
     public List<SousAtelier> GetAllSousAtelier(int id ){
         return  SR.findByAtelier_Id( id );}
 
+
+
+        public void addMediaToAtelier(MediaSousAtelier sousAtelier) {
+            MAR.save(sousAtelier);     
+        }
 
 
 

@@ -24,7 +24,11 @@ public class ServiceUtilisateur {
  UtilisateurRepository AR;
 
  public void addadhrenet(adherent ad  ){
-     RA.save(ad);
+        if (RA.findByTypeAndIdTypeAndUtilisateur(ad.getType(), ad.getIdType(), ad.getUtilisateur()).isPresent()) {
+            throw new RuntimeException("deja adhrent");
+        }else {
+            RA.save(ad);
+        }
  }
 public List<Utilisateur> getAllUsers() {
     return AR.findAll();

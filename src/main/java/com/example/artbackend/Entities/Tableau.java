@@ -16,7 +16,8 @@ public class Tableau {
     private int id;
     private String titre ;
     private String Description ;
-
+    @Column(nullable = true)
+    private float prix ;
     private String image ;
     @ManyToOne
     private Artiste artiste;

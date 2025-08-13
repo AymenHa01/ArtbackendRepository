@@ -9,8 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
 public class Evenement {
     @Id
@@ -22,10 +21,25 @@ public class Evenement {
     private  Date dateFin;
     private Float prix ;
     private  String image ;
+    @Column(nullable = true)
+    private boolean isActive ;
     @OneToMany(mappedBy = "evenement" , cascade = CascadeType.ALL ,orphanRemoval = true )
     private  List<MediaEvent> media;
 
-
+    public Evenement(int id ){
+        this.id = id;
+    }  
+     public Evenement(int id, String name, String description, Date dateDebut, Date dateFin, Float prix, String image  , boolean isActive) {
+        this.id = id;
+        this.name = name;
+        this.Description = description;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.prix = prix;
+        this.image = image;
+        this.isActive = isActive;
+    }
+    public Evenement(){}
 
 
 

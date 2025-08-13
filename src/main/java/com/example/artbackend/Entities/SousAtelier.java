@@ -23,6 +23,6 @@ public class SousAtelier {
     private Float prix ;
     @OneToMany(mappedBy = "sousAtelier")
     private List<MediaSousAtelier> media;
-
+    
 
 }

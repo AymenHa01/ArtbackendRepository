@@ -23,15 +23,17 @@ public class AdhrenetController {
     @Autowired
     UtilisateurRepository AR;
 
+    
+
     @PostMapping("/add")
-    public ResponseEntity<HttpServlet> add(@RequestParam int id , @RequestBody adherent ad){
+    public ResponseEntity<String> add(@RequestParam int id , @RequestBody adherent ad){
         try {
             Optional<Utilisateur> u = AR.findById(id);
             ad.setUtilisateur(u.get());
             SU.addadhrenet(ad );
-            return new ResponseEntity<>(HttpStatus.ACCEPTED);
-        }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Adherent added successfully", HttpStatus.ACCEPTED);
+        }catch (RuntimeException e){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         }
     }
     @GetMapping("/getAllUsers")

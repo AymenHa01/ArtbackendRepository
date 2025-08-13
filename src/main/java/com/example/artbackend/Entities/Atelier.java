@@ -18,8 +18,10 @@ public class Atelier {
     private int id;
     private String name ;
     private String Description ;
+    @Column(nullable = true)
+    private boolean isActive ;
     @OneToMany(mappedBy = "atelier")
-  @JsonIgnore
+    @JsonIgnore
     List<SousAtelier> sousateliers;
     private String image;
 }

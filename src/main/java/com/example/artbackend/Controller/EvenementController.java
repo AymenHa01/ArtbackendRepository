@@ -1,6 +1,7 @@
 package com.example.artbackend.Controller;
 
 import com.example.artbackend.Entities.Evenement;
+import com.example.artbackend.Entities.MediaEvent;
 import com.example.artbackend.Service.EvenementService;
 import com.example.artbackend.Service.ServiceUtilisateur;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,19 @@ public class EvenementController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    // @PostMapping("/AddMediaToEvent")
+    // public ResponseEntity<Void> addMediaToEvent(@RequestBody MediaEvent mediaEvent) {
+    //     try {
+    //         ES.addMediaToEvent(mediaEvent);
+    //         return new ResponseEntity<>(HttpStatus.CREATED);
+    //     } catch (Exception e) {
+    //         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    //     }
+    // }
+
+
+
 
 
 }
