@@ -37,7 +37,7 @@ public class FormationController {
     @PostMapping("/AddFormation")
     public ResponseEntity<HttpServlet> addServlet( @RequestBody Formation formation) {
         try {
-
+            formation.setActive(true);
             formationService.AddFormation(formation);
             return ResponseEntity.ok().build();
 

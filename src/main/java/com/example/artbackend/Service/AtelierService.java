@@ -8,13 +8,16 @@ import com.example.artbackend.Repository.MediaeventRepository;
 import com.example.artbackend.Repository.SousAtelierRepository;
 import com.example.artbackend.Repository.mediaSousAtelierRepository;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@Transactional
 public class AtelierService {
     @Autowired
     AtelierRepository AR;
@@ -27,6 +30,8 @@ public class AtelierService {
 
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
+
+
 
 public void AddAtelier(Atelier atelier){
     
@@ -47,7 +52,6 @@ messagingTemplate.convertAndSend("/topic/sous-atelier" , atelier);
     return sousAtelier.getId();
 }
 public void DeleteSousAtelier(SousAtelier atelier){
-
     messagingTemplate.convertAndSend("/topic/Sousatelier" ,atelier);
     SR.delete(atelier);
 
@@ -72,12 +76,23 @@ public void DeleteAtelier(int id ){
 
 
 
-        public void addMediaToAtelier(MediaSousAtelier sousAtelier) {
-            MAR.save(sousAtelier);     
+        public void addMediaToAtelier(String Path , int id ) {
+            Optional<SousAtelier> sousAtelier = SR.findById(id);
+            if (sousAtelier.isPresent()) {
+            MediaSousAtelier media = new MediaSousAtelier( Path , sousAtelier.get()) ;
+            MAR.save(media);
+            }
+
         }
 
 
 
-
+//    public void DeleteSousAtelierImage(String Path){
+//        return SousAtelierRepository.
+//    }
+//
+//    int changeStatusAtelier(int id){
+//
+//    }
 
 }

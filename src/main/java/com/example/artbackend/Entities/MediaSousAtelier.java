@@ -19,5 +19,12 @@ public class MediaSousAtelier {
     @ManyToOne
     @JsonIgnore
     private SousAtelier sousAtelier;
+
+    public MediaSousAtelier(String Path , SousAtelier sousAtelier){
+        this.Path = Path;
+        this.sousAtelier = sousAtelier;
+    }
+
+
     
 }

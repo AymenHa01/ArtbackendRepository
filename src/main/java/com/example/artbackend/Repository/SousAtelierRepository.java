@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface SousAtelierRepository extends JpaRepository<SousAtelier,Integer> {
     List<SousAtelier> findByAtelier_Id(int id);
+
+
 }

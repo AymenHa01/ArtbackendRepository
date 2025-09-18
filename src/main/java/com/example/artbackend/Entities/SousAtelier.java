@@ -18,10 +18,15 @@ public class SousAtelier {
     private int id;
     private String name ;
     private String Description ;
+    private String image ;
     @ManyToOne
     private Atelier atelier;
     private Float prix ;
-    @OneToMany(mappedBy = "sousAtelier")
+    private boolean isActive;
+    @OneToMany(mappedBy = "sousAtelier" ,
+            cascade = CascadeType.ALL
+            , orphanRemoval = true
+    )
     private List<MediaSousAtelier> media;
     
 

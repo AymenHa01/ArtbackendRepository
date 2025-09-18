@@ -84,6 +84,7 @@ public class Admin {
     @PostMapping("/addAtelier")
     public ResponseEntity<HttpStatus> addAtelier(@RequestBody Atelier a) {
         try{
+            a.setActive(true);
             AS.AddAtelier(a);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         }catch (Exception e){
@@ -104,6 +105,7 @@ public class Admin {
     @PostMapping("/addSousAtelier")
     public ResponseEntity<Integer> SousAtelier(@RequestBody SousAtelier a) {
         try{
+            a.setActive(true);
             int id = AS.AddSousAtelier(a);
             return new ResponseEntity<>(id,HttpStatus.ACCEPTED);
         }catch (Exception e){
@@ -152,6 +154,7 @@ public class Admin {
     @PostMapping("/AddEvenement")
     public ResponseEntity<HttpStatus>  addEvenement(@RequestBody Evenement evenement){
         try {
+            evenement.setActive(true);
             ES.AddEvenement(evenement);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         }catch (Exception e ){
@@ -184,9 +187,10 @@ public class Admin {
 
 
     @PostMapping("/AddMediaToAtelier")
-    public ResponseEntity<Void> addMediaToAtelier(@RequestBody MediaSousAtelier mediaAtelier) {
+    public ResponseEntity<Void> addMediaToAtelier(@RequestParam String Path , int id ) {
         try {
-            AS.addMediaToAtelier(mediaAtelier);
+
+            AS.addMediaToAtelier(Path , id);
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
