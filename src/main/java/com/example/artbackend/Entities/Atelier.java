@@ -18,9 +18,13 @@ public class Atelier {
     private int id;
     private String name ;
     private String Description ;
-    @Column(nullable = true)
-    private boolean isActive ;
-    @OneToMany(mappedBy = "atelier")
+    @Column(name = "active", nullable = true)
+    private boolean active ;
+    @OneToMany(mappedBy = "atelier" ,
+            cascade = CascadeType.ALL
+            , orphanRemoval = true
+
+    )
     @JsonIgnore
     List<SousAtelier> sousateliers;
     private String image;

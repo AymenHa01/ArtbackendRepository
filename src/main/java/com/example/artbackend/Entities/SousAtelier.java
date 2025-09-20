@@ -22,11 +22,8 @@ public class SousAtelier {
     @ManyToOne
     private Atelier atelier;
     private Float prix ;
-    private boolean isActive;
-    @OneToMany(mappedBy = "sousAtelier" ,
-            cascade = CascadeType.ALL
-            , orphanRemoval = true
-    )
+    private boolean active;
+    @OneToMany(mappedBy = "sousAtelier", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MediaSousAtelier> media;
     
 

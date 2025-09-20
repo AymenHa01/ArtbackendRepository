@@ -22,7 +22,7 @@ public class Evenement {
     private Float prix ;
     private  String image ;
     @Column(nullable = true)
-    private boolean isActive ;
+    private boolean active ;
     @OneToMany(mappedBy = "evenement" , cascade = CascadeType.ALL ,orphanRemoval = true )
     private  List<MediaEvent> media;
 
@@ -37,7 +37,7 @@ public class Evenement {
         this.dateFin = dateFin;
         this.prix = prix;
         this.image = image;
-        this.isActive = isActive;
+        this.active = isActive;
     }
     public Evenement(){}
 

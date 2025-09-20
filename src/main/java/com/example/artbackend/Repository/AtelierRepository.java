@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 public interface AtelierRepository extends JpaRepository<Atelier , Integer> {
 
     @Modifying
-    @Query("UPDATE Atelier a SET a.isActive = CASE WHEN a.isActive = true THEN false ELSE true END WHERE a.id = :id")
+    @Query("UPDATE Atelier a SET a.active = CASE WHEN a.active = true THEN false ELSE true END WHERE a.id = :id")
     int toggleActive(@Param("id") int id);
 
 

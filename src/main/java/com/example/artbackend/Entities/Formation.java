@@ -27,7 +27,7 @@ public class Formation {
     private Float prix ;
     private String image ;
     @Column(nullable = true)
-    private boolean isActive ;
+    private boolean active ;
 
 
 

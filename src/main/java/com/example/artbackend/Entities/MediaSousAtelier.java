@@ -15,8 +15,8 @@ public class MediaSousAtelier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String Path;
-
     @ManyToOne
+    @JoinColumn(name = "sous_atelier_id")
     @JsonIgnore
     private SousAtelier sousAtelier;
 

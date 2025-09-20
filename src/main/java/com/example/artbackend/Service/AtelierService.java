@@ -53,7 +53,7 @@ messagingTemplate.convertAndSend("/topic/sous-atelier" , atelier);
 }
 public void DeleteSousAtelier(SousAtelier atelier){
     messagingTemplate.convertAndSend("/topic/Sousatelier" ,atelier);
-    SR.delete(atelier);
+    SR.deleteById(atelier.getId());
 
 
 
