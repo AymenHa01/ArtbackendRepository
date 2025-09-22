@@ -11,6 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("Admin")
 @CrossOrigin(origins = "*"  )
@@ -42,7 +45,6 @@ public class Admin {
 
 
     @PostMapping("/createArtiste")
-
     public ResponseEntity<HttpStatus> createArtiste(@RequestBody Artiste a) {
         try {
             TS.createArtiste(a);
@@ -51,6 +53,7 @@ public class Admin {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @PostMapping("/createTableau")
     public ResponseEntity<HttpStatus> createTableau(@RequestBody Tableau t) {
         try {
@@ -80,7 +83,7 @@ public class Admin {
         }
     }
 
-                                                                                                               
+      //Atlier
     @PostMapping("/addAtelier")
     public ResponseEntity<HttpStatus> addAtelier(@RequestBody Atelier a) {
         try{
@@ -88,9 +91,19 @@ public class Admin {
             AS.AddAtelier(a);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         }catch (Exception e){
+            e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
+    }
+    @PostMapping("/EditAtelier")
+    public ResponseEntity<HttpStatus> update(@RequestBody Atelier a) {
+        try{
+            AS.update(a);
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
     @DeleteMapping("/DeleteAtelier/{id}")
     public ResponseEntity<HttpStatus> DeleteAtelier(@PathVariable int id ) {
@@ -101,7 +114,7 @@ public class Admin {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+//Sous atelier
     @PostMapping("/addSousAtelier")
     public ResponseEntity<Integer> SousAtelier(@RequestBody SousAtelier a) {
         try{
@@ -124,6 +137,19 @@ public class Admin {
 
     }
 
+    @PostMapping("/EditSousAtelier")
+    public ResponseEntity<Map<String , Object>> EditSousAtelier(@RequestBody SousAtelier a) {
+        HashMap<String , Object> response= new  HashMap<>();
+        try{
+            SousAtelier sousAtelier = AS.EditeSousAtelier(a);
+            response.put("status " , "succes") ;
+            response.put("sous atelier " , sousAtelier);
+            return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
+        }catch (Exception e){
+            response.put("status " , "fail") ;
+            return new ResponseEntity<>(response , HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     @PostMapping("/AddMedia")
     public ResponseEntity<HttpStatus> addMedia(@RequestParam String path, @RequestParam String type , @RequestParam int id  ) {
@@ -161,9 +187,6 @@ public class Admin {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-
-
         @PostMapping("/AddMediaFormation")
         public ResponseEntity<Void> addMediaFormation(@RequestParam String path , @RequestParam int id) {
             try {
@@ -173,8 +196,6 @@ public class Admin {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
             }
         }
-
-
     @PostMapping("/AddMediaToEvent")
     public ResponseEntity<Void> addMediaToEvent(@RequestParam String path , @RequestParam int id) {
         try {
