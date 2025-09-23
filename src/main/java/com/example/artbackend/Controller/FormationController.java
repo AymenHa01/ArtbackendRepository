@@ -45,6 +45,15 @@ public class FormationController {
             return ResponseEntity.notFound().build();
         }
     }
+    @PostMapping("/EditFormation")
+    public ResponseEntity<HttpServlet> editFormation( @RequestBody Formation formation) {
+        try {
+            formationService.EditFormation(formation);
+            return ResponseEntity.ok().build();
+        }catch (Exception e ){
+            return ResponseEntity.notFound().build();
+        }
+    }
 
     @DeleteMapping("/DeleteFormation/{id}")
     public ResponseEntity<HttpServlet> deleteFormation( @PathVariable  int id  ) {

@@ -53,7 +53,6 @@ public class Admin {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
     @PostMapping("/createTableau")
     public ResponseEntity<HttpStatus> createTableau(@RequestBody Tableau t) {
         try {
@@ -63,7 +62,6 @@ public class Admin {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
     @DeleteMapping("/DeletArtiste")
     public  ResponseEntity<HttpStatus> deleteArtiste(@RequestBody Artiste a) {
         try {
@@ -82,7 +80,6 @@ public class Admin {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
       //Atlier
     @PostMapping("/addAtelier")
     public ResponseEntity<HttpStatus> addAtelier(@RequestBody Atelier a) {
@@ -136,7 +133,6 @@ public class Admin {
         }
 
     }
-
     @PostMapping("/EditSousAtelier")
     public ResponseEntity<Map<String , Object>> EditSousAtelier(@RequestBody SousAtelier a) {
         HashMap<String , Object> response= new  HashMap<>();
@@ -150,7 +146,6 @@ public class Admin {
             return new ResponseEntity<>(response , HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
     @PostMapping("/AddMedia")
     public ResponseEntity<HttpStatus> addMedia(@RequestParam String path, @RequestParam String type , @RequestParam int id  ) {
         try {
@@ -165,7 +160,6 @@ public class Admin {
 
 
     }
-
     @GetMapping("/DeletMedia/{id}")
     public ResponseEntity<HttpStatus> DeleteMedia(@PathVariable int id ){
         try{
@@ -175,8 +169,6 @@ public class Admin {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-
     @PostMapping("/AddEvenement")
     public ResponseEntity<HttpStatus>  addEvenement(@RequestBody Evenement evenement){
         try {
@@ -187,8 +179,8 @@ public class Admin {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-        @PostMapping("/AddMediaFormation")
-        public ResponseEntity<Void> addMediaFormation(@RequestParam String path , @RequestParam int id) {
+    @PostMapping("/AddMediaFormation")
+    public ResponseEntity<Void> addMediaFormation(@RequestParam String path , @RequestParam int id) {
             try {
                 formationService.addMediaFormation(path , id);
                 return ResponseEntity.ok().build();
@@ -205,8 +197,6 @@ public class Admin {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-
     @PostMapping("/AddMediaToAtelier")
     public ResponseEntity<Void> addMediaToAtelier(@RequestParam String Path , int id ) {
         try {
@@ -218,6 +208,39 @@ public class Admin {
         }
     }
 
+//DeleteMedia :
+
+// DELETE MEDIA ENDPOINTS
+
+    @DeleteMapping("/DeleteMediaFormation")
+    public ResponseEntity<Void> deleteMediaFormation(@RequestParam int mediaId) {
+        try {
+            formationService.deleteMediaFormation(mediaId);
+            return ResponseEntity.noContent().build(); // 204
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @DeleteMapping("/DeleteMediaEvent")
+    public ResponseEntity<Void> deleteMediaEvent(@RequestParam int mediaId) {
+        try {
+            ES.DeleteMediaEvent(mediaId);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @DeleteMapping("/DeleteMediaAtelier")
+    public ResponseEntity<Void> deleteMediaAtelier(@RequestParam int mediaId) {
+        try {
+            AS.deleteMediaAtelie(mediaId);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
 
 
 

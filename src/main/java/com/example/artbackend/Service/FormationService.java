@@ -30,12 +30,14 @@ public class FormationService {
 
 
 public void  AddFormation(Formation formation ){
-        
-
         FR.save(formation);
 	List<Formation>  formations =  this.GetAllFormation();
 	messagingTemplate.convertAndSend("/topic/formation" ,  formations );
+     }
 
+     public void EditFormation(Formation formation){
+         formation.setMedia(formation.getMedia());
+         FR.save(formation);
      }
 
 
@@ -54,6 +56,10 @@ public void addMediaFormation(String path ,  int  id) {
     fr.setFormation(new Formation(id));
     MFR.save(fr);
 
+}
+
+public void deleteMediaFormation(int id ){
+         MFR.deleteById(id);
 }
 
 

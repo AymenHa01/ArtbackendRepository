@@ -18,7 +18,6 @@ public class  Artiste{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
-
     private String prenom;
     private String email;
     private String numero;

@@ -26,14 +26,19 @@ public class AdhrenetController {
     
 
     @PostMapping("/add")
-    public ResponseEntity<String> add(@RequestParam int id , @RequestBody adherent ad){
+    public ResponseEntity<Map<String , Object>> add(@RequestParam int id , @RequestBody adherent ad){
+        HashMap<String , Object> response = new HashMap<>();
         try {
             Optional<Utilisateur> u = AR.findById(id);
             ad.setUtilisateur(u.get());
-            SU.addadhrenet(ad );
-            return new ResponseEntity<>("Adherent added successfully", HttpStatus.ACCEPTED);
+            SU.addadhrenet(ad);
+            response.put("status", HttpStatus.CREATED);
+            response.put("message",u.get());
+            return new ResponseEntity<>(response, HttpStatus.CREATED);
         }catch (RuntimeException e){
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+            response.put("status", HttpStatus.BAD_REQUEST);
+            response.put("message", e.getMessage());
+            return new ResponseEntity<>(response, HttpStatus.CONFLICT);
         }
     }
     @GetMapping("/getAllUsers")

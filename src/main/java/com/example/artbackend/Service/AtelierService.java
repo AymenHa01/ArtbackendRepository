@@ -107,6 +107,10 @@ public void DeleteAtelier(int id ){
 
         }
 
+        public void deleteMediaAtelie(int id ){
+    MAR.deleteById(id);
+        }
+
 
 
 //    public void DeleteSousAtelierImage(String Path){

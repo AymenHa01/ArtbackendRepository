@@ -41,6 +41,9 @@ public class EvenementService {
         m.setEvenement(e);
         MR.save(m);
     }
+    public void  DeleteMediaEvent(int id ){
+        MR.deleteById(id);
+    }
 
 
 }
