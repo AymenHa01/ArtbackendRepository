@@ -10,6 +10,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FormationService {
@@ -36,8 +37,13 @@ public void  AddFormation(Formation formation ){
      }
 
      public void EditFormation(Formation formation){
-         formation.setMedia(formation.getMedia());
+         Optional<Formation> f =  FR.findById(formation.getId());
+         if ( f.isPresent() ){
+         formation.setMedia(f.get().getMedia());
          FR.save(formation);
+         } else {
+             throw  new RuntimeException("Formation Not Found");
+         }
      }
 
 
