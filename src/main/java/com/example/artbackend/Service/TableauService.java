@@ -28,10 +28,10 @@ ArtisteRepository AR;
         AR.save(artiste);
     }
 
-public void deleteArtiste(Artiste artiste){
+public void deleteArtiste(int  id){
 
     messagingTemplate.convertAndSend("/topic/artiste" ,"Hello,this is a test message!");
-        AR.delete(artiste);
+        AR.deleteById(id);
 
 }
 public List<Tableau> getAllTableau(){

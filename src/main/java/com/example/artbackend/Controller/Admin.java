@@ -62,10 +62,12 @@ public class Admin {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @DeleteMapping("/DeletArtiste")
-    public  ResponseEntity<HttpStatus> deleteArtiste(@RequestBody Artiste a) {
+
+
+    @DeleteMapping("/DeletArtiste/{id}")
+    public  ResponseEntity<HttpStatus> deleteArtiste(@PathVariable int  id) {
         try {
-            TS.deleteArtiste(a);
+            TS.deleteArtiste(id);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         }catch (Exception e ){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -179,6 +181,21 @@ public class Admin {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @PostMapping("/EditEvenement")
+    public ResponseEntity<Map<String, Object>> editEvenement(@RequestBody Evenement e) {
+        HashMap<String, Object> response = new HashMap<>();
+        try {
+            Evenement updatedEvent = ES.EditeEvenement(e);
+            response.put("status", "success");
+            response.put("evenement", updatedEvent);
+            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+            response.put("status", "fail");
+            response.put("error", ex.getMessage());
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     @PostMapping("/AddMediaFormation")
     public ResponseEntity<Void> addMediaFormation(@RequestParam String path , @RequestParam int id) {
             try {
@@ -241,6 +258,9 @@ public class Admin {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+
+
 
 
 

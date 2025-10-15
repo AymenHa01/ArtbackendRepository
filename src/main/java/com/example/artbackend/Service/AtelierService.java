@@ -72,6 +72,7 @@ public void DeleteSousAtelier(SousAtelier atelier){
         if (sousAtelier1.isPresent()){
             sousAtelier1.get().setName(atelier.getName());
             sousAtelier1.get().setActive(atelier.isActive());
+            sousAtelier1.get().setPrix(atelier.getPrix());
             sousAtelier1.get().setImage(atelier.getImage());
             sousAtelier1.get().setDescription(atelier.getDescription());
             SousAtelier sousAtelier = SR.save(sousAtelier1.get());

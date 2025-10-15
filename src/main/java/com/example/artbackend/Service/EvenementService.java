@@ -34,6 +34,25 @@ public class EvenementService {
         ER.deleteById(id);
     }
 
+
+    public Evenement EditeEvenement(Evenement e) {
+        Evenement evenement = ER.findById(e.getId()).orElse(null);
+        if (evenement != null) {
+            e.setName(e.getName());
+            e.setDescription(e.getDescription());
+            e.setDateDebut(e.getDateDebut());
+            e.setDateFin(e.getDateFin());
+            e.setPrix(e.getPrix());
+            e.setImage(e.getImage());
+            e.setActive(e.isActive());
+            e.setMedia(evenement.getMedia());
+           Evenement evenementER= ER.save(e);
+            return evenementER;
+        } else {
+            throw new RuntimeException("Evenement with ID " + e.getId() + " not found");
+        }
+    }
+
     public void  addMediaToEvent(String path ,  int  id ){
         MediaEvent m = new MediaEvent();
         m.setPath(path);

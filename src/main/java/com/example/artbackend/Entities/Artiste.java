@@ -22,7 +22,7 @@ public class  Artiste{
     private String email;
     private String numero;
     private String image;
-    @OneToMany(mappedBy = "artiste")
+    @OneToMany(mappedBy = "artiste" , cascade = CascadeType.ALL  )
     @JsonIgnore
     private List<Tableau> tableaux;
 }
