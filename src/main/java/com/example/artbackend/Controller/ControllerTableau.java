@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/Tableaux")
@@ -46,6 +47,17 @@ public class ControllerTableau {
                 } catch (Exception e) {
                     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
                 }
+            }
+            @DeleteMapping("/deleteTableau/{id}")
+        public ResponseEntity<Map<String , Object >> deleteTableau(@PathVariable int id ){
+            try {
+                TS.deleteTableau(id);
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+            }catch (Exception e ){
+                return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            }
+
+
             }
 
 
