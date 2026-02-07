@@ -1,15 +1,8 @@
 package com.example.artbackend.Entities;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 public class MediaEvent {
     @Id
@@ -20,4 +13,39 @@ public class MediaEvent {
     @JsonIgnore
     private Evenement evenement;
 
+    // Default constructor
+    public MediaEvent() {
+    }
+
+    // All-args constructor
+    public MediaEvent(int id, String Path, Evenement evenement) {
+        this.id = id;
+        this.Path = Path;
+        this.evenement = evenement;
+    }
+
+    // Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getPath() {
+        return Path;
+    }
+
+    public void setPath(String Path) {
+        this.Path = Path;
+    }
+
+    public Evenement getEvenement() {
+        return evenement;
+    }
+
+    public void setEvenement(Evenement evenement) {
+        this.evenement = evenement;
+    }
 }
