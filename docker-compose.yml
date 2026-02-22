@@ -1,44 +1,11 @@
 version: '3.8'
 
 services:
-<<<<<<< HEAD
-  db:
-    image: postgres:15-alpine
-    container_name: postgres_db
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: art_db
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-=======
->>>>>>> 1e2b1f2 (first commit)
   app:
     build: .
     container_name: spring_app
     ports:
       - "8080:8086"
-<<<<<<< HEAD
-    depends_on:
-      - db
-    environment:
-      # Use 'db' (the service name) as the host, not localhost
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/art_db
-      SPRING_DATASOURCE_USERNAME: user
-      SPRING_DATASOURCE_PASSWORD: password
-      # Tell your app where to look for the uploads folder
-      UPLOAD_DIR: /app/uploads
-    volumes:
-      # This is the "magic" line for your videos and images:
-      # [Host Path] : [Container Path]
-      - ./uploads:/app/uploads
-
-volumes:
-  postgres_data:
-=======
     environment:
       SPRING_DATASOURCE_URL: jdbc:sqlserver://karima.database.windows.net:1433;database=free-sql-db-1581137;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
       SPRING_DATASOURCE_USERNAME: Art@karima
@@ -46,4 +13,3 @@ volumes:
       UPLOAD_DIR: /app/uploads
     volumes:
       - ./uploads:/app/uploads
->>>>>>> 1e2b1f2 (first commit)

@@ -19,20 +19,12 @@ public class Artiste {
     @JsonIgnore
     private List<Tableau> tableaux;
 
-<<<<<<< HEAD
     // Default constructor
     public Artiste() {
     }
 
     // All-args constructor
-    public Artiste(int id, String nom, String prenom, String email, String numero, String image,
-            List<Tableau> tableaux) {
-=======
-    public Artiste() {
-    }
-
     public Artiste(int id, String nom, String prenom, String email, String numero, String image, List<Tableau> tableaux) {
->>>>>>> 1e2b1f2 (first commit)
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -42,10 +34,7 @@ public class Artiste {
         this.tableaux = tableaux;
     }
 
-<<<<<<< HEAD
     // Getters and Setters
-=======
->>>>>>> 1e2b1f2 (first commit)
     public int getId() {
         return id;
     }
@@ -101,8 +90,4 @@ public class Artiste {
     public void setTableaux(List<Tableau> tableaux) {
         this.tableaux = tableaux;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 1e2b1f2 (first commit)

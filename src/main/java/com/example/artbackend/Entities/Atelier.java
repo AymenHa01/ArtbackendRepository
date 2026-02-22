@@ -14,20 +14,11 @@ public class Atelier {
     private String Description;
     @Column(name = "active", nullable = true)
     private boolean active;
-<<<<<<< HEAD
-    @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL, orphanRemoval = true
-=======
-    @OneToMany(mappedBy = "atelier",
-            cascade = CascadeType.ALL
-            , orphanRemoval = true
->>>>>>> 1e2b1f2 (first commit)
-
-    )
+    @OneToMany(mappedBy = "atelier", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     List<SousAtelier> sousateliers;
     private String image;
 
-<<<<<<< HEAD
     // Default constructor
     public Atelier() {
     }
@@ -35,12 +26,6 @@ public class Atelier {
     // All-args constructor
     public Atelier(int id, String name, String Description, boolean active, List<SousAtelier> sousateliers,
             String image) {
-=======
-    public Atelier() {
-    }
-
-    public Atelier(int id, String name, String Description, boolean active, List<SousAtelier> sousateliers, String image) {
->>>>>>> 1e2b1f2 (first commit)
         this.id = id;
         this.name = name;
         this.Description = Description;
@@ -49,10 +34,7 @@ public class Atelier {
         this.image = image;
     }
 
-<<<<<<< HEAD
     // Getters and Setters
-=======
->>>>>>> 1e2b1f2 (first commit)
     public int getId() {
         return id;
     }

@@ -15,39 +15,24 @@ public class MediaSousAtelier {
     @JsonIgnore
     private SousAtelier sousAtelier;
 
-<<<<<<< HEAD
     // Default constructor
     public MediaSousAtelier() {
     }
 
     // Custom constructor
     public MediaSousAtelier(String Path, SousAtelier sousAtelier) {
-=======
-    public MediaSousAtelier() {
-    }
-
-    public MediaSousAtelier(int id, String Path, SousAtelier sousAtelier) {
-        this.id = id;
->>>>>>> 1e2b1f2 (first commit)
         this.Path = Path;
         this.sousAtelier = sousAtelier;
     }
 
-<<<<<<< HEAD
     // All-args constructor
     public MediaSousAtelier(int id, String Path, SousAtelier sousAtelier) {
         this.id = id;
-=======
-    public MediaSousAtelier(String Path, SousAtelier sousAtelier) {
->>>>>>> 1e2b1f2 (first commit)
         this.Path = Path;
         this.sousAtelier = sousAtelier;
     }
 
-<<<<<<< HEAD
     // Getters and Setters
-=======
->>>>>>> 1e2b1f2 (first commit)
     public int getId() {
         return id;
     }

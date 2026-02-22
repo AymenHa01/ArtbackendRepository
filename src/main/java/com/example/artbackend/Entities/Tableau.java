@@ -15,17 +15,11 @@ public class Tableau {
     @ManyToOne
     private Artiste artiste;
 
-<<<<<<< HEAD
     // Default constructor
     public Tableau() {
     }
 
     // All-args constructor
-=======
-    public Tableau() {
-    }
-
->>>>>>> 1e2b1f2 (first commit)
     public Tableau(int id, String titre, String Description, float prix, String image, Artiste artiste) {
         this.id = id;
         this.titre = titre;
@@ -35,10 +29,7 @@ public class Tableau {
         this.artiste = artiste;
     }
 
-<<<<<<< HEAD
     // Getters and Setters
-=======
->>>>>>> 1e2b1f2 (first commit)
     public int getId() {
         return id;
     }

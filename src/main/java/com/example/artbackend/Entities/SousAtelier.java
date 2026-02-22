@@ -20,7 +20,6 @@ public class SousAtelier {
     @OneToMany(mappedBy = "sousAtelier", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MediaSousAtelier> media;
 
-<<<<<<< HEAD
     // Default constructor
     public SousAtelier() {
     }
@@ -28,12 +27,6 @@ public class SousAtelier {
     // All-args constructor
     public SousAtelier(int id, String name, String Description, String image, Atelier atelier, Float prix,
             boolean active, List<MediaSousAtelier> media) {
-=======
-    public SousAtelier() {
-    }
-
-    public SousAtelier(int id, String name, String Description, String image, Atelier atelier, Float prix, boolean active, List<MediaSousAtelier> media) {
->>>>>>> 1e2b1f2 (first commit)
         this.id = id;
         this.name = name;
         this.Description = Description;
@@ -44,10 +37,7 @@ public class SousAtelier {
         this.media = media;
     }
 
-<<<<<<< HEAD
     // Getters and Setters
-=======
->>>>>>> 1e2b1f2 (first commit)
     public int getId() {
         return id;
     }

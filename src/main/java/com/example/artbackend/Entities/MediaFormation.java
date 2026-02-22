@@ -14,32 +14,22 @@ public class MediaFormation {
     @JsonIgnore
     private Formation formation;
 
-<<<<<<< HEAD
     // Default constructor
     public MediaFormation() {
     }
 
     // All-args constructor
-=======
-    public MediaFormation() {
-    }
-
->>>>>>> 1e2b1f2 (first commit)
     public MediaFormation(int id, String Path, Formation formation) {
         this.id = id;
         this.Path = Path;
         this.formation = formation;
     }
 
-<<<<<<< HEAD
     // Getters and Setters
-=======
     public MediaFormation(String Path, Formation formation) {
         this.Path = Path;
         this.formation = formation;
     }
-
->>>>>>> 1e2b1f2 (first commit)
     public int getId() {
         return id;
     }

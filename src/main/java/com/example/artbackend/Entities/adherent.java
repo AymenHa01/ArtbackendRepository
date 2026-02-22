@@ -14,17 +14,11 @@ public class adherent {
     private String type;
     private int idType;
 
-<<<<<<< HEAD
     // Default constructor
     public adherent() {
     }
 
     // All-args constructor
-=======
-    public adherent() {
-    }
-
->>>>>>> 1e2b1f2 (first commit)
     public adherent(int id, Utilisateur utilisateur, String type, int idType) {
         this.id = id;
         this.utilisateur = utilisateur;
@@ -32,10 +26,7 @@ public class adherent {
         this.idType = idType;
     }
 
-<<<<<<< HEAD
     // Getters and Setters
-=======
->>>>>>> 1e2b1f2 (first commit)
     public int getId() {
         return id;
     }
