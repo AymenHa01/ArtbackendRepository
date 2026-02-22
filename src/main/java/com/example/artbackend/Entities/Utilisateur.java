@@ -1,10 +1,7 @@
 package com.example.artbackend.Entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -26,6 +23,7 @@ public class Utilisateur {
     @OneToMany(mappedBy = "utilisateur")
     private List<adherent> adherents;
 
+<<<<<<< HEAD
     // Default constructor
     public Utilisateur() {
     }
@@ -33,6 +31,12 @@ public class Utilisateur {
     // All-args constructor
     public Utilisateur(int id, String username, String nom, String prenom, String email, String password, String numero,
             int age, String image, boolean statut, String role, List<adherent> adherents) {
+=======
+    public Utilisateur() {
+    }
+
+    public Utilisateur(int id, String username, String nom, String prenom, String email, String password, String numero, int age, String image, boolean statut, String role, List<adherent> adherents) {
+>>>>>>> 1e2b1f2 (first commit)
         this.id = id;
         this.username = username;
         this.nom = nom;
@@ -47,7 +51,10 @@ public class Utilisateur {
         this.adherents = adherents;
     }
 
+<<<<<<< HEAD
     // Getters and Setters
+=======
+>>>>>>> 1e2b1f2 (first commit)
     public int getId() {
         return id;
     }
@@ -144,3 +151,4 @@ public class Utilisateur {
         this.adherents = adherents;
     }
 }
+

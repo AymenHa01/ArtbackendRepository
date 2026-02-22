@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+<<<<<<< HEAD
   db:
     image: postgres:15-alpine
     container_name: postgres_db
@@ -13,11 +14,14 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+=======
+>>>>>>> 1e2b1f2 (first commit)
   app:
     build: .
     container_name: spring_app
     ports:
       - "8080:8086"
+<<<<<<< HEAD
     depends_on:
       - db
     environment:
@@ -34,3 +38,12 @@ services:
 
 volumes:
   postgres_data:
+=======
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:sqlserver://karima.database.windows.net:1433;database=free-sql-db-1581137;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+      SPRING_DATASOURCE_USERNAME: Art@karima
+      SPRING_DATASOURCE_PASSWORD: karima123@
+      UPLOAD_DIR: /app/uploads
+    volumes:
+      - ./uploads:/app/uploads
+>>>>>>> 1e2b1f2 (first commit)

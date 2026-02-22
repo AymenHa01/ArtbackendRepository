@@ -21,18 +21,28 @@ public class Evenement {
     @OneToMany(mappedBy = "evenement", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MediaEvent> media;
 
+<<<<<<< HEAD
     // Default constructor
     public Evenement() {
     }
 
     // Custom constructor
+=======
+    public Evenement() {
+    }
+
+>>>>>>> 1e2b1f2 (first commit)
     public Evenement(int id) {
         this.id = id;
     }
 
+<<<<<<< HEAD
     // All-args constructor
     public Evenement(int id, String name, String Description, Date dateDebut, Date dateFin, Float prix, String image,
             boolean active, List<MediaEvent> media) {
+=======
+    public Evenement(int id, String name, String Description, Date dateDebut, Date dateFin, Float prix, String image, boolean active, List<MediaEvent> media) {
+>>>>>>> 1e2b1f2 (first commit)
         this.id = id;
         this.name = name;
         this.Description = Description;
@@ -44,7 +54,10 @@ public class Evenement {
         this.media = media;
     }
 
+<<<<<<< HEAD
     // Getters and Setters
+=======
+>>>>>>> 1e2b1f2 (first commit)
     public int getId() {
         return id;
     }
@@ -117,3 +130,4 @@ public class Evenement {
         this.media = media;
     }
 }
+

@@ -1,7 +1,5 @@
 package com.example.artbackend.Entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -26,7 +24,10 @@ public class Formation {
     @OneToMany(mappedBy = "formation", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MediaFormation> media;
 
+<<<<<<< HEAD
     // Default constructor
+=======
+>>>>>>> 1e2b1f2 (first commit)
     public Formation() {
     }
 
@@ -35,9 +36,13 @@ public class Formation {
         this.id = id;
     }
 
+<<<<<<< HEAD
     // All-args constructor
     public Formation(int id, String name, String Description, String Formateur, Date Debut, Date Fin, int heures,
             Float prix, String image, boolean active, List<MediaFormation> media) {
+=======
+    public Formation(int id, String name, String Description, String Formateur, Date Debut, Date Fin, int heures, Float prix, String image, boolean active, List<MediaFormation> media) {
+>>>>>>> 1e2b1f2 (first commit)
         this.id = id;
         this.name = name;
         this.Description = Description;
@@ -51,7 +56,10 @@ public class Formation {
         this.media = media;
     }
 
+<<<<<<< HEAD
     // Getters and Setters
+=======
+>>>>>>> 1e2b1f2 (first commit)
     public int getId() {
         return id;
     }
@@ -140,3 +148,4 @@ public class Formation {
         this.media = media;
     }
 }
+

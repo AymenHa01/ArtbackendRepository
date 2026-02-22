@@ -13,18 +13,27 @@ public class MediaEvent {
     @JsonIgnore
     private Evenement evenement;
 
+<<<<<<< HEAD
     // Default constructor
     public MediaEvent() {
     }
 
     // All-args constructor
+=======
+    public MediaEvent() {
+    }
+
+>>>>>>> 1e2b1f2 (first commit)
     public MediaEvent(int id, String Path, Evenement evenement) {
         this.id = id;
         this.Path = Path;
         this.evenement = evenement;
     }
 
+<<<<<<< HEAD
     // Getters and Setters
+=======
+>>>>>>> 1e2b1f2 (first commit)
     public int getId() {
         return id;
     }
@@ -49,3 +58,4 @@ public class MediaEvent {
         this.evenement = evenement;
     }
 }
+

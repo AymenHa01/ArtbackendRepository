@@ -19,11 +19,17 @@ public class Media {
     @JsonIgnore
     private SousAtelier sousAtelier;
 
+<<<<<<< HEAD
     // Default constructor
     public Media() {
     }
 
     // All-args constructor
+=======
+    public Media() {
+    }
+
+>>>>>>> 1e2b1f2 (first commit)
     public Media(int id, String Path, Evenement evenement, Formation formation, SousAtelier sousAtelier) {
         this.id = id;
         this.Path = Path;
@@ -32,7 +38,10 @@ public class Media {
         this.sousAtelier = sousAtelier;
     }
 
+<<<<<<< HEAD
     // Getters and Setters
+=======
+>>>>>>> 1e2b1f2 (first commit)
     public int getId() {
         return id;
     }
@@ -73,3 +82,4 @@ public class Media {
         this.sousAtelier = sousAtelier;
     }
 }
+

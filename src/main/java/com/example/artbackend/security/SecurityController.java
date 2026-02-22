@@ -2,7 +2,6 @@ package com.example.artbackend.security;
 
 import com.example.artbackend.Entities.Utilisateur;
 import com.example.artbackend.Repository.UtilisateurRepository;
-import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +28,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/auth")
 @CrossOrigin(origins = "*", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
 
@@ -41,6 +39,11 @@ public class SecurityController {
 
     private final AuthenticationManager authenticationManager1;
     private final JwtEncoder jwtEncoder;
+
+    public SecurityController(AuthenticationManager authenticationManager1, JwtEncoder jwtEncoder) {
+        this.authenticationManager1 = authenticationManager1;
+        this.jwtEncoder = jwtEncoder;
+    }
 
 
 
