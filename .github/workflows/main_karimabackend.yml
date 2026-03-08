@@ -21,7 +21,7 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'microsoft'
 
       - name: Build with Maven
@@ -49,9 +49,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_EBF379B2E4C5444F9159B3A66D9DC2F2 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_7CA5F58BAA734CF58CD5D6F43A45090B }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6B9997DAEC004089816AF6794990E170 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B43B28426DFD4333BF91081733F9192C }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C05DCFE26B4B41729BB898E62A3DEA6B }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F274949882D24A238D958899353E8202 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -60,4 +60,5 @@ jobs:
           app-name: 'karimabackend'
           slot-name: 'Production'
           package: '*.jar'
+
           
